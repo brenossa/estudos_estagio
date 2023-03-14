@@ -1,2 +1,3 @@
-# estudos_estagio
-Coisas que estou aprendendo no meu estágio.
+# Estudos Estágio
+
+Conceitos que estou aprendendo no meu estágio estão sendo documentados aqui em forma de exercícios comentados.
