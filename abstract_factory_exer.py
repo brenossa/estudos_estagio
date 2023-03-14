@@ -6,7 +6,7 @@ class FabricaDeCarro:
     def criar_bateria(self):
         pass
 
-# Fábrica Concreta 1 - Carros Elétricos
+# Fábrica de Carros Elétricos - Filha da Fábrica Abstrata
 class FabricaDeCarroEletrico(FabricaDeCarro):
     def criar_motor(self):
         return MotorEletrico()
@@ -14,7 +14,7 @@ class FabricaDeCarroEletrico(FabricaDeCarro):
     def criar_bateria(self):
         return BateriaLithiumIon()
 
-# Fábrica Concreta 2 - Carros de Gasolina
+# Fábrica de Carros de Gasolina - Filha da Fábrica Abstrata
 class FabricaDeCarroGasolina(FabricaDeCarro):
     def criar_motor(self):
         return MotorGasolina()
@@ -22,37 +22,39 @@ class FabricaDeCarroGasolina(FabricaDeCarro):
     def criar_bateria(self):
         return BateriaChumboAcido()
 
-# Produto Abstrato 1 - Motor
+# Produtos
+
+# Motor Abstrato
 class Motor:
     def ligar(self):
         pass
 
-# Produto Concreto 1.1 - Motor Elétrico
+# Motor Elétrico - Filho de Motor Abstrato
 class MotorEletrico(Motor):
     def ligar(self):
         print("Ligando motor elétrico...")
 
-# Produto Concreto 1.2 - Motor de Gasolina
+# Motor de Gasolina - Filho de Motor Abstrato
 class MotorGasolina(Motor):
     def ligar(self):
         print("Ligando motor de gasolina...")
 
-# Produto Abstrato 2 - Bateria
+# Bateria Abstrata
 class Bateria:
     def carregar(self):
         pass
 
-# Produto Concreto 2.1 - Bateria Lithium-Ion
+# Bateria de Lithium-Ion - Filha de Bateria Abstrata
 class BateriaLithiumIon(Bateria):
     def carregar(self):
         print("Carregando bateria lithium-ion...")
 
-# Produto Concreto 2.2 - Bateria Chumbo Ácido
+# Bateria Chumbo Ácido - Filho de Bateria Abstrata
 class BateriaChumboAcido(Bateria):
     def carregar(self):
         print("Carregando bateria de chumbo ácido...")
 
-# Código Cliente
+# Código Cliente - Gera um carro a partir de uma fábrica
 class Carro:
     def __init__(self, fabrica):
         self.motor = fabrica.criar_motor()
@@ -62,12 +64,12 @@ class Carro:
         self.bateria.carregar()
         self.motor.ligar()
 
-# Criar um carro elétrico
+# Criando um carro elétrico
 fabrica = FabricaDeCarroEletrico()
 carro = Carro(fabrica)
 carro.ligar()
 
-# Criar um carro de gasolina
+# Criando um carro de gasolina
 fabrica = FabricaDeCarroGasolina()
 carro = Carro(fabrica)
 carro.ligar()
